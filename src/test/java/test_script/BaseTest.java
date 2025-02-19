@@ -1,5 +1,7 @@
 package test_script;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,6 +17,6 @@ public class BaseTest {
 		WebDriver driver=new ChromeDriver();
 		LoginPageObject lp=new LoginPageObject(driver);
 		lp.openLoginPage();
-		lp.enterUnandPw();
+		lp.enterUnandPw("meghna@gmail.com", "meghna@313");
 	}
 }

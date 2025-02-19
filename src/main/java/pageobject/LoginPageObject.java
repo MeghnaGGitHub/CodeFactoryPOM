@@ -3,28 +3,39 @@ package pageobject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-public class LoginPageObject 
+import reusableabstractcomponents.AbstractComponent;
+
+public class LoginPageObject extends AbstractComponent
 {
 	WebDriver driver;
-	WebElement email;
-	WebElement pwd;
-	
 	
 	public LoginPageObject(WebDriver driver) 
 	{
+		super(driver);
 		this.driver=driver;
+		PageFactory.initElements(driver, this);
 	}
+	
+	@FindBy(id="email") WebElement un;
+	
+	@FindBy(name="pass") WebElement pwd;
+
+	@FindBy(name="login") WebElement lgn_btn;
+	
 	public void openLoginPage()
 	{
 		driver.get("https://www.facebook.com/");
-		driver.manage().window().maximize();
+		impWait(3);
+		max();
 	}
-	public void enterUnandPw()
+	public void enterUnandPw(String str_un, String str_pwd)
 	{
-		email=driver.findElement(By.id("email"));
-		pwd=driver.findElement(By.id("pass"));
-		email.sendKeys("meghna@gmail.com");
-		pwd.sendKeys("ABC");
+		un.sendKeys(str_un);
+		pwd.sendKeys(str_pwd);
+		lgn_btn.click();
+		close();
 	}
 }
