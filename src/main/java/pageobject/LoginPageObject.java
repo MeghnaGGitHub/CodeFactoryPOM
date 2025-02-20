@@ -11,20 +11,15 @@ import reusableabstractcomponents.AbstractComponent;
 public class LoginPageObject extends AbstractComponent
 {
 	WebDriver driver;
-	
 	public LoginPageObject(WebDriver driver) 
 	{
 		super(driver);
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}
-	
 	@FindBy(id="email") WebElement un;
-	
 	@FindBy(name="pass") WebElement pwd;
-
 	@FindBy(name="login") WebElement lgn_btn;
-	
 	public void openLoginPage()
 	{
 		driver.get("https://www.facebook.com/");

@@ -1,5 +1,6 @@
 package test_script;
 
+import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -10,13 +11,10 @@ import org.testng.annotations.Test;
 
 import pageobject.LoginPageObject;
 
-public class BaseTest {
+public class BaseTest extends ReusableTestComponents {
 	@Test
-	public void tc1()
+	public void tc1() throws IOException
 	{
-		WebDriver driver=new ChromeDriver();
-		LoginPageObject lp=new LoginPageObject(driver);
-		lp.openLoginPage();
-		lp.enterUnandPw("meghna@gmail.com", "meghna@313");
+		launchAndLogin();
 	}
 }
