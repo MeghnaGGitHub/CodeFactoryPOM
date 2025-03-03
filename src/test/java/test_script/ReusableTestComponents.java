@@ -13,7 +13,6 @@ import pageobject.LoginPageObject;
 public class ReusableTestComponents 
 {
 	WebDriver driver;
-	
 	public WebDriver initializeDriver() throws IOException
 	{
 		Properties prop=new Properties();

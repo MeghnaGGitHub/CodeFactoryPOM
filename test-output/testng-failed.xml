@@ -6,6 +6,7 @@
       <class name="test_script.BaseTest">
         <methods>
           <include name="tc1"/>
+          <include name="faultCapture"/>
         </methods>
       </class> <!-- test_script.BaseTest -->
     </classes>

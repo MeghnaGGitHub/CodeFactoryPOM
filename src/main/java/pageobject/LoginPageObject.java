@@ -31,6 +31,6 @@ public class LoginPageObject extends AbstractComponent
 		un.sendKeys(str_un);
 		pwd.sendKeys(str_pwd);
 		lgn_btn.click();
-		close();
+		//close();
 	}
 }
