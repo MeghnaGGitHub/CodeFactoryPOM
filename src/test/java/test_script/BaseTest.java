@@ -10,27 +10,28 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import pageobject.LoginPageObject;
 import utilitiespack.ScreenshotUtility;
 
 public class BaseTest extends ReusableTestComponents {
-	@Test
-	public void tc1() throws IOException
+	
+	
+	@Test(dataProvider="excelData")
+	public void tc1(String username,String password) throws IOException
 	{
-		launchAndLogin();
-		Assert.assertFalse(true);
+		System.out.println(username+" "+password);
 	}
-	@AfterMethod
-	public void faultCapture(ITestResult result) throws IOException
+	
+	
+	@DataProvider(name="excelData")
+	public Object[][] getExcelData() throws IOException
 	{
-		if (ITestResult.FAILURE==result.getStatus()) 
-		{
-			ScreenshotUtility su=new ScreenshotUtility(driver);
-			su.takeScreenshot(driver);
-			System.out.println(result.getMethod().getMethodName());
-			System.out.println(result.getThrowable());
-		}
+		String filepath="C:\\Users\\Meghna\\Desktop\\DataDriven\\MyCSV.xlsx";
+		String sheetName="MySheet";
+		return  ExcelUtil.readExcelData(filepath,sheetName);
 	}
+	
 }
