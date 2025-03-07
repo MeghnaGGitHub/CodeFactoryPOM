@@ -19,12 +19,27 @@ import utilitiespack.ScreenshotUtility;
 public class BaseTest extends ReusableTestComponents {
 	
 	
-	@Test(dataProvider="excelData")
+	@Test(enabled=false,dataProvider="excelData")
 	public void tc1(String username,String password) throws IOException
 	{
 		System.out.println(username+" "+password);
+		// WebElement fUn = driver.findElement(By.id("email"));
+		//fUn.sendKeys(username);
+		// WebElement pwd = driver.findElement(By.id("email"));
+		//fUn.sendKeys(password);
+		//login.btn.click();
 	}
-	
+	@Test
+	public void tc2()
+	{
+		System.out.println("Hello I'm Test Case 2");
+	}
+	@Test
+	public void tc3()
+	{
+		System.out.println("Hello I'm Test Case 3");
+		Assert.assertTrue(false);
+	}
 	
 	@DataProvider(name="excelData")
 	public Object[][] getExcelData() throws IOException
